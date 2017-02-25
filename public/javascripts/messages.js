@@ -1,46 +1,25 @@
-// Avoid Jquery
-function uiSendMessage(messsage){
-    var div = document.createElement("DIV");
-    div.className = "msg-from bn bg-blue";
-    var p = document.createElement("P");
-    p.className = "msg-from bn bg-blue";
-    var text = document.createTextNode(message);
-    p.appendChild(text); div.appendChild(p);
-    document.getElementById("messages-container").appendChild(div); //Hits the DOM
+function uiMakeToMessage(text){
+    return "<p class='msg msg-to'><span class='label label-primary'>"+text+"</span></p>";
 }
 
-function uiShowTypingIndicator(){
-    document.getElementById("typing-indicator").style.dislay = "inline";
-}
-
-function uiHideTypingIndicator(){
-    document.getElementById("typing-indicator").style.dislay = "none";
-}
-
-function uiToggleTypingIndicator(){
-    if(document.getElementById("typing-indicator").style.dislay == "none"){
-        document.getElementById("typing-indicator").style.dislay = "inline";
-    }else{
-        document.getElementById("typing-indicator").style.dislay = "none";
-    }
+function uiSendMessage(){
+    var message = $("#message-text").val();
+    var msg_to = uiMakeToMessage(message);
+    $("#messages-container").append(msg_to);
+    $("#message-text").val("");
 }
 
 var MessageSession = {
     session: function(){
-        try{
-            let chatClient = new Twilio.Chat.Client(token);
-            chatClient.initialize()
-            .then(() => {
-                // Now you can do anything!
-            });
-            this.channel = messagingClient.createChannel({
-                uniqueName: 'international-student-faq-chat',
-                friendlyName: 'International Student FAQ Chat'
-            });
-        }catch(){
-
-        }
-        
+        let chatClient = new Twilio.Chat.Client(token);
+        chatClient.initialize()
+        .then(() => {
+            // Now you can do anything!
+        });
+        this.channel = messagingClient.createChannel({
+            uniqueName: 'international-student-faq-chat',
+            friendlyName: 'International Student FAQ Chat'
+        });
     },
     send: function(message){
         // 'messsage' parameter is a string that can come in the form of Markdown
@@ -55,6 +34,10 @@ var MessageSession = {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-    
+$(document).ready(function(){
+    console.log("Document ready");
+    $("#send-button").on("click", function(){
+        console.log("Trigger Send button");
+        uiSendMessage();
+    });
 });

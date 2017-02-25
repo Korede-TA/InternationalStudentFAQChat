@@ -1,23 +1,20 @@
 extends layout
 
 block content
-  .col-offset-4.col-md-4
-    #chat-container.panel.panel-default
+    #chat-container.panel.panel-default.col-md
       .panel-heading
         h3#title.panel-title= title
 
       #messages-container.panel-body
-        .msg-from.label.label-default
-          p.msg-text
-        .msg-to.label.label-primary
-          p.msg-text
+        p.msg.msg-from
+          span.label.label-default Test Message from
+        p.msg.msg-to
+          span.label.label-primary Test message to
         //-#typing-indicator.bn.bg-grey.br4
 
       #message-input.panel-footer
         .input-group
-          input(type="text" placeholder="Ask a question...")#message-text.form-control
+          input(type="text", placeholder="Ask a question...")#message-text.form-control
           span.input-group-btn
             button(type="button")#send-button.btn.btn-default
               .glyphicon.glyphicon-send
-
-
