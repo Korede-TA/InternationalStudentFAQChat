@@ -8,5 +8,6 @@ a {
 }
 
 #typing-indicator{
+  display: none;
   background-image: url("/images/ios-typing.gif"); 
 }

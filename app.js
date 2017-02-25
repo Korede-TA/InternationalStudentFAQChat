@@ -43,4 +43,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.listen(3000, function () {
+  console.log('InternationalStudentFAQChat listening on port 3000');
+  console.log('==================================================');
+});
+
 module.exports = app;
