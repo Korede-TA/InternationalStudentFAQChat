@@ -8,4 +8,5 @@ def index():
     return render_template("index.pug", title="FAQ Chat")
 
 @app.route("/answer")
-def get_answer()
+def get_answer():
+    pass
