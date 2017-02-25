@@ -40,4 +40,14 @@ $(document).ready(function(){
         console.log("Trigger Send button");
         uiSendMessage();
     });
+
+    $("#message-text").on("focus", function(){
+        $("#message-text").keypress(function( event ) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if ( keycode == 13 ){
+                console.log("Trigger Send button");
+                uiSendMessage();
+            }
+        });
+    });
 });
