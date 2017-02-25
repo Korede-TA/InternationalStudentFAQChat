@@ -1,14 +1,23 @@
 extends layout
 
 block content
-  h1= title
-  #chat-container.bn
-    #messages-container
-      .msg-from.bn.bg-blue
-        p.msg-text
-      .msg-to.bn.bg-grey
-      #typing-indicator.bn.bg-grey.br4
-    #message-input.v-btm-l
-      input(type="text")#message-text.fl.w-80.bg-washed-blue
-      #send-button.fl.w-20
+  .col-offset-4.col-md-4
+    #chat-container.panel.panel-default
+      .panel-heading
+        h3#title.panel-title= title
+
+      #messages-container.panel-body
+        .msg-from.label.label-default
+          p.msg-text
+        .msg-to.label.label-primary
+          p.msg-text
+        //-#typing-indicator.bn.bg-grey.br4
+
+      #message-input.panel-footer
+        .input-group
+          input(type="text" placeholder="Ask a question...")#message-text.form-control
+          span.input-group-btn
+            button(type="button")#send-button.btn.btn-default
+              .glyphicon.glyphicon-send
+
 
