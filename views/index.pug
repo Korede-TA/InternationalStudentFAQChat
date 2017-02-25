@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  #chat-container.bn
+    #messages-container
+      .msg-from.bn.bg-blue
+        p.msg-text
+      .msg-to.bn.bg-grey
+      #typing-indicator.bn.bg-grey.br4
+    #message-input.v-btm-l
+      input(type="text")#message-text.fl.w-80.bg-washed-blue
+      #send-button.fl.w-20
+
