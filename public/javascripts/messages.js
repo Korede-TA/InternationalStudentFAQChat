@@ -2,6 +2,10 @@ function uiMakeToMessage(text){
     return "<p class='msg msg-to'><span class='label label-primary'>"+text+"</span></p>";
 }
 
+function uiMakeFromMessage(text){
+    return "<p class='msg msg-from'><span class='label label-primary'>"+text+"</span></p>";
+}
+
 function uiSendMessage(){
     var message = $("#message-text").val();
     var msg_to = uiMakeToMessage(message);

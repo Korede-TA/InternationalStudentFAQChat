@@ -18,6 +18,7 @@ a {
 
 .panel-body{
   overflow: auto;
+  height: 80%;
 }
 
 .msg{
@@ -31,6 +32,5 @@ a {
 }
 
 .msg-to{
-  text-align: right;
-  
+  text-align: right;  
 }
