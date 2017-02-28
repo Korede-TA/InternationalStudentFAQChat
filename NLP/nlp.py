@@ -1,12 +1,16 @@
 from textblob import TextBlob
-import beautifulsoup4 
+# import beautifulsoup4 
 
-def name():
-    pass
+class NLP:
+    def __init__(question):
+        pass
 
-def question():
-    pass
+    def name():
+        pass
 
-def extract_intent():
-    pass
+    def question():
+        pass
+
+    def extract_intent():
+        pass
 
