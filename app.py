@@ -14,24 +14,12 @@ def index():
 
 @app.route("/answer")
 def get_answer():
-    question = urllib.parse(request.args.get('question'))
+    question = request.args.get("q", "") # q is the question
     if question.strip() != "":
         response = NLP.get_response(question)
-    return jsonify(response=response)
+        test_reponse = "Flargeboob"
+    return jsonify(response=test_response)
 
-
-''' Serve Static
-@app.route('/js/<path:filename>')
-def serve_js(filename):
-    root_dir = os.path.dirname(os.getcwd())
-    return send_from_directory(os.path.join(root_dir, 'static', 'js'), filename)
-
-
-@app.route('/css/<path:filename>')
-def serve_css(filename):
-    root_dir = os.path.dirname(os.getcwd())
-    return send_from_directory(os.path.join(root_dir, 'static', 'css'), filename)
-'''
 
 if __name__ == "__main__":
     app.run()

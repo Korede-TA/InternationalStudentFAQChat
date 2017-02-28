@@ -11,7 +11,13 @@ function uiSendMessage(){
     var msg_to = uiMakeToMessage(message);
     $("#messages-container").append(msg_to);
     $("#message-text").val("");
+    sendMessage(message);
 }   
+
+function uiRecieveMessage(message){
+    var msg_from = uiMakeFromMessage(message);
+    $("#messages-container").append(msg_from);
+}
 
 $(document).ready(function(){
     console.log("Document ready");
@@ -32,6 +38,9 @@ $(document).ready(function(){
 });
 
 function sendMessage(message){
+    message = encodeURI(message.toLowerCase());
     var URL = "localhost:5000/answer?q="+message;
-    //Yigit
+    $.get( URL, function(data) {
+        uiRecieveMessage(data.response);
+    });
 }
